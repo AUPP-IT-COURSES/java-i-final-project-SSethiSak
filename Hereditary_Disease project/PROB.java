@@ -5,8 +5,6 @@ public class PROB {
     private HashMap<Integer, HashMap<Boolean,Double>> trait_prob;
     private HashMap<String, Double> mutation_prob;
 
-
-
     //construct probability distribution
     public PROB(){
     //set unconditional probabilities for having gene
@@ -41,7 +39,6 @@ public class PROB {
     
     this.trait_prob = traitprob;
 
-    
     //set mutation probability
     HashMap<String,Double> mutation_prob = new HashMap<>();
     mutation_prob.put("mutation", 0.01);

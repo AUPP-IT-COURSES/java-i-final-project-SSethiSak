@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class heredity
 {   
@@ -95,8 +94,6 @@ public class heredity
         double joint = 1;
         PROB probability = new PROB();
 
-        // HashMap <String, HashMap<Integer, Double>> mother = new HashMap<>();
-        // HashMap <String, HashMap<Integer, Double>> father = new HashMap<>(); 
 
         HashMap <Integer, Double> prob_gene_parent = new HashMap<>();
         prob_gene_parent.put(0,probability.get_mutation_probability());  
@@ -131,8 +128,6 @@ public class heredity
 
 
             //probability of person having 0 copy of gene
-            
-            //if ((contains(one_gene, person) == false) && (contains(two_genes, person))){
             if (!one_gene.contains(person) && !two_genes.contains(person)){    
                 //if we have no info about parent/no parent
                 if (father == null && mother == null){
@@ -233,7 +228,7 @@ public class heredity
             double coefficient_trait = probability.sum_trait_probability(person);
             double normalized_no_trait = probability.get_trait_probability(person, 0) / coefficient_trait;
             double normalized_have_trait = probability.get_trait_probability(person, 1) / coefficient_trait;
-            System.out.println(normalized_have_trait+normalized_no_trait);
+            
             probability.normalize_trait(person, 0, normalized_no_trait);
             probability.normalize_trait(person, 1, normalized_have_trait);
 
@@ -241,7 +236,7 @@ public class heredity
             double normalized_zero_gene = probability.get_genetic_probability(person, 0) / coefficient_trait;
             double normalized_one_gene = probability.get_genetic_probability(person, 1) / coefficient_trait;
             double normalized_two_gene = probability.get_genetic_probability(person, 2) / coefficient_trait;
-            System.out.println(normalized_one_gene+normalized_two_gene+normalized_zero_gene);
+            
 
             probability.normalize_gene(person, 0, normalized_zero_gene);
             probability.normalize_gene(person, 1, normalized_one_gene);

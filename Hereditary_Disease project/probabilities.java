@@ -37,7 +37,6 @@ public class probabilities {
     public void update_gene_probability(Person name, int gene_number, double new_probability) {
         HashMap<String, HashMap<Integer, Double>> personProbability = this.probabilities.get(name);
        
-        
         double previousValue = personProbability.get("gene").get(gene_number);
         double newValue = previousValue + new_probability;
     
